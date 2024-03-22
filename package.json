@@ -1,0 +1,21 @@
+{
+  "name": "desafio-backend",
+  "version": "1.0.0",
+  "description": "Desafio de Backend",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon main.js"
+  },
+  "keywords": [
+    "desafios"
+  ],
+  "author": "Franco Nicolas Veron",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
