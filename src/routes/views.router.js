@@ -13,4 +13,11 @@ router.get("/", async(req, res)=>{
     }
 })
 
+router.get("/realtimeproducts", async(req, res) =>{
+    try {
+        res.render("realtimeproducts")
+    } catch (error) {
+        res.status(400).json({error: "Error"})
+    }
+})
 module.exports = router
