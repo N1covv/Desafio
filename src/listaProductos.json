@@ -25,14 +25,5 @@
     "img": "Sin imagen",
     "code": "abc125",
     "stock": 20
-  },
-  {
-    "id": 4,
-    "title": "Creature",
-    "description": "Remera color verde talle xxl",
-    "price": 15000,
-    "img": "Sin imagen",
-    "code": "abc126",
-    "stock": 10
   }
 ]

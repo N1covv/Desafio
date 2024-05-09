@@ -1,4 +1,12 @@
+*{
+    background-color: rgba(38, 38, 38, 0.283);
+}
+
 h1{
-    color: black;
+    color: white;;
+    text-align: center;
+}
+h2{
+    color: white;;
     text-align: center;
 }

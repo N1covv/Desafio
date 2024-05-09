@@ -1,4 +1,5 @@
 const fs = require("fs").promises
+const CartModel = require("./models/cart.models.js")
 
 class CartManager {
     constructor(path) {
@@ -28,13 +29,14 @@ class CartManager {
         }
     }
     async crearCart() {
-        const newCart = {
-            id: ++this.ultId,
-            products:[]
+        try{
+            const newCart = new CartModel({products: []})
+            await newCart.save()
+            return newCart
+        } catch (error){
+            console.log("Error al cargar el carrito", error)
+            throw error
         }
-        this.carts.push(newCart)
-        await this.guardarCart()
-        return newCart
     }
     async getCartById(cartId) {
         try {
@@ -54,8 +56,10 @@ class CartManager {
         if(existProduct){
             existProduct.quantity +=quantity
         }else{
-            cart.products.push({product: productId, quantity})
+            cart.products.push({product: productId, quantity})  
         }
+
+        cart.markModified("products")
         await this.guardarCart()
         return cart
     }
