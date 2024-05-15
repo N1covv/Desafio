@@ -20,4 +20,12 @@ router.get("/realtimeproducts", async(req, res) =>{
         res.status(400).json({error: "Error"})
     }
 })
+
+router.get("/login",(req,res)=>{
+    res.render("login")
+})
+router.get("/register",(req,res)=>{
+    res.render("register")
+})
+
 module.exports = router
