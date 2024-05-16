@@ -18,7 +18,7 @@ router.get("/realtimeproducts", async(req, res) =>{
         res.render("realtimeproducts")
     } catch (error) {
         res.status(400).json({error: "Error"})
-    }
+    }   
 })
 
 router.get("/login",(req,res)=>{
@@ -26,6 +26,14 @@ router.get("/login",(req,res)=>{
 })
 router.get("/register",(req,res)=>{
     res.render("register")
+})
+
+router.get("/profile", (req, res) =>{
+    if (!req.session.login) {
+        return res.redirect("/login")
+    }
+
+    res.render("profile")
 })
 
 module.exports = router

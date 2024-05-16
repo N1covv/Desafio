@@ -1,19 +1,23 @@
 const ProductManager = require("./src/productManager.js")
 const productManager = new ProductManager("./src/listaProductos.json")
-const express = require("express")
-const main = express()
-const exphbs = require("express-handlebars")
-const socket = require("socket.io")
 const productRouter = require("./src/routes/products.router.js")
-const port = 8080
 const cartsRouter = require("./src/routes/carts.router.js")
 const viewsRouter = require("./src/routes/views.router.js")
+const usersRouter = require("./src/routes/user.router.js")
+const sessionsRouter = require("./src/routes/session.router.js")
+
+const express = require("express")
+const session = require("express-session")
+const exphbs = require("express-handlebars")
+const socket = require("socket.io")
+const main = express()
+const port = 8080
 require("./src/database.js")
 const MongoStore = require("connect-mongo")
-const session = require("express-session")
+
 const FileStore = require("session-file-store")
-const usersRouter = require("./src/routes/user.router.js")
 const fileStore = new FileStore(session)
+
 
 main.use(express.json())
 main.use(express.urlencoded({extended:true})) //Middle
@@ -60,6 +64,7 @@ main.use("/api", productRouter)
 main.use("/api", cartsRouter) //Routes
 main.use("/", viewsRouter)
 main.use("/api/users", usersRouter )
+main.use("/api/sessions", sessionsRouter)
 
 
 const io = new socket.Server(httpServer)

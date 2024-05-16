@@ -8,7 +8,7 @@ router.post("/", async (req, res) =>{
     const {first_name, last_name, email, password} = req.body
 
     try {
-        const existeUser = await UserModel.findeOne({email:email})
+        const existeUser = await UserModel.findOne({email:email})
         if (existeUser){
             return res.status(400).send("El email ya esta registrado")
         }
